@@ -13,5 +13,3 @@ You can access it here [ogar unlimited] (https://github.com/AJS-development/Ogar
  9. More control (gameserver.ini)
  10. and other features such as merge or nojoin or kick/killrange
 
-# I apologise for the inconvienience
-There has been a bug in the last release involving the error "Undefined 'config'" error. I have fixed it and the code is at https://github.com/AJS-development/Ogar-unlimited. I also apologise for making you click many links because I have changed the name to Ogar Unlimited. (I accept your apology. Hahaha)
