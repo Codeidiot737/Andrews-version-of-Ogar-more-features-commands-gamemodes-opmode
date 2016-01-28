@@ -7,6 +7,7 @@ var showConsole = true;
 
 // Start msg
 console.log("[Game] Andrews Version of Ogar - An open source Agar.io server implementation");
+Console.log("[Update] This has been changed to Ogar Unlimited. Please download a new copy from Ogar unlimited for the latest version");
 
 // Handle arguments
 process.argv.forEach(function(val) {
