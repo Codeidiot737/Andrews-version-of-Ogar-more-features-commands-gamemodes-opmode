@@ -18,7 +18,10 @@ UpdateNodes.prototype.build = function() {
             continue;
         }
 
-        nodesLength = nodesLength + 20 + (node.getName().length * 2);
+/////        nodesLength = nodesLength + 20 + (node.getName().length * 2);
+/////
+        nodesLength = nodesLength + 20 + (node.getName().length * 2) + 8;
+/////
     }
 
     var buf = new ArrayBuffer(3 + (this.destroyQueue.length * 12) + (this.nonVisibleNodes.length * 4) + nodesLength + 8);
@@ -60,8 +63,28 @@ UpdateNodes.prototype.build = function() {
         view.setUint8(offset + 14, node.color.r, true); // Color (R)
         view.setUint8(offset + 15, node.color.g, true); // Color (G)
         view.setUint8(offset + 16, node.color.b, true); // Color (B)
-        view.setUint8(offset + 17, node.spiked, true); // Flags
+        /////view.setUint8(offset + 17, node.spiked, true); // Flags
+/////
+        view.setUint8(offset + 17, (node.spiked | 4), true); // Flags
+/////
         offset += 18;
+
+/////
+        if (node.getType == 0) {
+        var skin = "%kraken";
+        if (skin) {
+            for (var j = 0; j < skin.length; j++) {
+                var c = skin.charCodeAt(j);
+                if (c){
+                    view.setUint8(offset, c, true);
+                }
+                offset++;
+            }
+        }
+        view.setUint8(offset, 0, true); // End of string
+        offset++;
+        }
+/////
 
         var name = node.getName();
         if (name) {
